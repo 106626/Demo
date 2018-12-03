@@ -53,6 +53,21 @@
 
         // 表格渲染
         var tableIns = table.render({
+        	
+        	
+        	
+        	 parseData: function(res){ //res 即为原始返回的数据
+                     res.data.code=0
+                        return {
+                          "code": res.data.code, //解析接口状态
+                          "msg": res.data.msg, //解析提示文本
+                          "count": res.data.total, //解析数据长度
+                          "data": res.data.authors //解析数据列表
+                        };
+                      },
+        	
+        	
+        	
             elem: '#dateTable'                  //指定原始表格元素选择器（推荐id选择器）
             , height: vipTable.getFullHeight()    //容器高度
             , cols: [[                  //标题栏
